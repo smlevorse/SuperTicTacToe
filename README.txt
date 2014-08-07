@@ -1,7 +1,25 @@
-perTicTacToe
+SuperTicTacToe
 ==============
 
 A program to play Super TicTacToe.
+
+The Program
+==============
+
+There are several objectives of this program:
+  -Familiarize myself with GitHub, it functions and its uses
+  -Actually make a digitial version of this game to help more people learn about it
+  -Start building a portfolio of professional projects
+
+Rough Plan:
+  1) I will probably start with a simple text based version of the game in Java. 
+  2) From there I will work on porting it to a version with a user interface possibly in C#
+  3) Web app?
+  4) Mobile app?
+
+Notes:
+~Starting College soon. College will take up time and slow down development
+~Incoming student hackathon might be a good place to build a team of people to work on this with.
 
 The Game
 ==============
@@ -156,25 +174,7 @@ the victor, but still feel the shame in knowing that you didn't actually win.
 I learned this game from some friends in highschool and it kept us entertained whenever we had a sub or finished our
 work early. There may be other variations of the game.
 
-The Program
-==============
-
-There are several objectives of this program:
-  -Familiarize myself with GitHub, it functions and its uses
-  -Actually make a digitial version of this game to help more people learn about it
-  -Start building a portfolio of professional projects
-
-Rough Plan:
-  1) I will probably start with a simple text based version of the game in Java. 
-  2) From there I will work on porting it to a version with a user interface possibly in C#
-  3) Web app?
-  4) Mobile app?
-
-Notes:
-~Starting College soon. College will take up time and slow down development
-~Incoming student hackathon might be a good place to build a team of people to work on this with.
-
-Copy Past Board
+Copy Paste Board
 ==============
 
 ....1.2.3....4.5.6....7.8.9.... | ....1.2.3....4.5.6....7.8.9....
