@@ -92,12 +92,13 @@ public class SuperTicTacToe {
 				//check for winning that internal board and change the external board to that value
 				tiar=threeInARow(packageBoard(gameBoard, playingBoard[0], playingBoard[1]));
 				outerBoard[playingBoard[0]][playingBoard[1]]=tiar;
-				System.out.println("tiar: " + tiar);
+//				System.out.println("tiar: " + tiar);											//Debugging
 				//Change board to explain winning that board
 				switch (tiar)
 				{
 					case 'X':
 					{
+						//large X ascii art
 						gameBoard[playingBoard[0]][playingBoard[1]][0][0]='\\';
 						gameBoard[playingBoard[0]][playingBoard[1]][0][1]='-';
 						gameBoard[playingBoard[0]][playingBoard[1]][0][2]='/';
@@ -112,8 +113,9 @@ public class SuperTicTacToe {
 					
 					case 'O':
 					{
+						//large O ascii art
 						gameBoard[playingBoard[0]][playingBoard[1]][0][0]='/';
-						gameBoard[playingBoard[0]][playingBoard[1]][0][1]='\u203E';
+						gameBoard[playingBoard[0]][playingBoard[1]][0][1]='\u203E'; //overscore, doesn't work
 						gameBoard[playingBoard[0]][playingBoard[1]][0][2]='\\';
 						gameBoard[playingBoard[0]][playingBoard[1]][1][0]='|';
 						gameBoard[playingBoard[0]][playingBoard[1]][1][1]='-';
@@ -126,11 +128,15 @@ public class SuperTicTacToe {
 				
 				}
 				
+				//display the board
+				printBoard(gameBoard);
+				
 				//Check for overall win
 				tiar=threeInARow(outerBoard);
-				System.out.println("tiar: " + tiar);
+//				System.out.println("tiar: " + tiar);										//Debugging
 				if (tiar != '-')
 				{
+					
 					System.out.println("Player " + tiar + " wins!");
 					won=true;
 				}	
@@ -147,12 +153,9 @@ public class SuperTicTacToe {
 			}
 			else
 				System.out.println("That space is already full");
-			//print the board
-			printBoard(gameBoard);
 			
 			//print outerBoard for debugging
-			//Play the game
-			printArray(outerBoard);
+//			printArray(outerBoard);
 		}
 		
 		in.close();
@@ -187,7 +190,7 @@ public class SuperTicTacToe {
 		for(int i=0; i<3; i++)
 			for(int j=0; j<3; j++)
 				packageArr[i][j]=board[row][col][i][j];
-		printArray(packageArr);
+//		printArray(packageArr);																	//Debugging
 		return packageArr;
 	}
 	
@@ -197,7 +200,7 @@ public class SuperTicTacToe {
 		for(int i=0; i<3; i++)
 			if(board[i][0] != '-' && board[i][0] == board[i][1] && board[i][0] == board[i][2])
 			{
-				System.out.println("threeInARow: " + board[i][0]);
+//				System.out.println("threeInARow: " + board[i][0]);								//Debugging
 				return board[i][0];
 			}
 		
