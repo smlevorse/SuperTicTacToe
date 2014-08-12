@@ -1,3 +1,8 @@
+//Sean Levorse
+//August 2014
+//Super TicTacToe
+//Credit to Matt Bu for teaching me this game
+
 package javaConsoleVersion;
 
 import java.util.Scanner;
