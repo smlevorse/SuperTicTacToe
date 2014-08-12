@@ -41,7 +41,8 @@ public class SuperTicTacToe {
 		//Play the game
 		while(!won)
 		{
-			while(outerBoard[playingBoard[0]][playingBoard[1]]!='-'||firstTurn){
+			while(outerBoard[playingBoard[0]][playingBoard[1]]!='-'|| firstTurn 
+					|| isFull(packageBoard(gameBoard, playingBoard[0], playingBoard[1]))){
 				//have player pick board to play in
 				firstTurn=false;
 				System.out.println("Player " + player + ", enter pick a board to play in.");
@@ -149,7 +150,7 @@ public class SuperTicTacToe {
 			//print the board
 			printBoard(gameBoard);
 			
-			//print outerboard for debugging
+			//print outerBoard for debugging
 			//Play the game
 			printArray(outerBoard);
 		}
@@ -207,11 +208,23 @@ public class SuperTicTacToe {
 		
 		//check diagonals
 		if(board[1][1] != '-' &&((board[1][1]== board[0][0] && board[1][1] == board[2][2]) 
-				|| (board[1][1] == board[0][2] || board[1][1] == board[2][0])))
+				|| (board[1][1] == board[0][2] && board[1][1] == board[2][0])))
 			return board[1][1];
 		return '-';
 	}
 	
+	public static boolean isFull(char[][] board)
+	{
+		for(int i=0; i<3; i++)
+		{
+			for(int j=0; j<3; j++)
+				if(board[i][j] == '-')
+					return false;
+		}
+		return true;
+	}
+	
+	//debugging method
 	public static void printArray(char[][] array)
 	{
 		for(int i =0; i < array[0].length; i++)
