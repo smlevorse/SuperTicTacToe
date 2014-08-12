@@ -17,6 +17,7 @@ public class SuperTicTacToe {
 							 {{{'-','-','-'},{'-','-','-'},{'-','-','-'}},
 							  {{'-','-','-'},{'-','-','-'},{'-','-','-'}},
 							  {{'-','-','-'},{'-','-','-'},{'-','-','-'}}}};
+		
 		char outerBoard[][] = {{'-','-','-'},
 				               {'-','-','-'},
 				               {'-','-','-'}};
@@ -36,29 +37,32 @@ public class SuperTicTacToe {
 		Scanner in = new Scanner(System.in);//Input
 		boolean won = false;				//Has someone won the game
 		char tiar = '-';							//Three in a row
-		
-		//allow first player to pick board
-		System.out.println("Player X, enter pick a board to start in.");
-		System.out.print("Row:");
-		playingBoard[0]=in.nextInt();
-		while(playingBoard[0] >= 3 || playingBoard[0] < 0)
-		{
-			System.out.println("Row must be between 0 and 2");
-			System.out.print("Row:");
-			playingBoard[0]=in.nextInt();
-		}
-		System.out.print("Column:");
-		playingBoard[1]=in.nextInt();
-		while(playingBoard[1] >= 3 || playingBoard[1] < 0)
-		{
-			System.out.println("Column must be between 0 and 2");
-			System.out.print("Column:");
-			playingBoard[1]=in.nextInt();
-		}
-		
+		boolean firstTurn=true;
 		//Play the game
 		while(!won)
 		{
+			while(outerBoard[playingBoard[0]][playingBoard[1]]!='-'||firstTurn){
+				//have player pick board to play in
+				firstTurn=false;
+				System.out.println("Player " + player + ", enter pick a board to play in.");
+				System.out.print("Row:");
+				playingBoard[0]=in.nextInt();
+				while(playingBoard[0] >= 3 || playingBoard[0] < 0)
+				{
+					System.out.println("Row must be between 0 and 2");
+					System.out.print("Row:");
+					playingBoard[0]=in.nextInt();
+				}
+				System.out.print("Column:");
+				playingBoard[1]=in.nextInt();
+				while(playingBoard[1] >= 3 || playingBoard[1] < 0)
+				{
+					System.out.println("Column must be between 0 and 2");
+					System.out.print("Column:");
+					playingBoard[1]=in.nextInt();
+				}
+			}
+			
 			//Get player's cell
 			System.out.println("Player " + player + ", pick a cell to place an " + player + ":");
 			System.out.print("Row:");
@@ -87,7 +91,7 @@ public class SuperTicTacToe {
 				//check for winning that internal board and change the external board to that value
 				tiar=threeInARow(packageBoard(gameBoard, playingBoard[0], playingBoard[1]));
 				outerBoard[playingBoard[0]][playingBoard[1]]=tiar;
-				
+				System.out.println("tiar: " + tiar);
 				//Change board to explain winning that board
 				switch (tiar)
 				{
@@ -123,6 +127,7 @@ public class SuperTicTacToe {
 				
 				//Check for overall win
 				tiar=threeInARow(outerBoard);
+				System.out.println("tiar: " + tiar);
 				if (tiar != '-')
 				{
 					System.out.println("Player " + tiar + " wins!");
@@ -143,7 +148,13 @@ public class SuperTicTacToe {
 				System.out.println("That space is already full");
 			//print the board
 			printBoard(gameBoard);
+			
+			//print outerboard for debugging
+			//Play the game
+			printArray(outerBoard);
 		}
+		
+		in.close();
 		
 	}
 
@@ -175,7 +186,7 @@ public class SuperTicTacToe {
 		for(int i=0; i<3; i++)
 			for(int j=0; j<3; j++)
 				packageArr[i][j]=board[row][col][i][j];
-		
+		printArray(packageArr);
 		return packageArr;
 	}
 	
@@ -183,19 +194,32 @@ public class SuperTicTacToe {
 	{
 		//check rows
 		for(int i=0; i<3; i++)
-			if(board[i][0] == board[i][1] && board[i][0] == board[i][2])
+			if(board[i][0] != '-' && board[i][0] == board[i][1] && board[i][0] == board[i][2])
+			{
+				System.out.println("threeInARow: " + board[i][0]);
 				return board[i][0];
+			}
 		
 		//check columns
 		for(int i=0; i<3; i++)
-			if(board[0][i] == board[1][i] && board[0][i] == board[2][i])
+			if(board[0][i] != '-' && board[0][i] == board[1][i] && board[0][i] == board[2][i])
 				return board[0][i];
 		
 		//check diagonals
-		if((board[1][1]== board[0][0] && board[1][1] == board [2][2]) 
-				|| (board[1][1] == board[0][2] || board[1][1] == board[2][0]))
+		if(board[1][1] != '-' &&((board[1][1]== board[0][0] && board[1][1] == board[2][2]) 
+				|| (board[1][1] == board[0][2] || board[1][1] == board[2][0])))
 			return board[1][1];
 		return '-';
+	}
+	
+	public static void printArray(char[][] array)
+	{
+		for(int i =0; i < array[0].length; i++)
+		{
+			for(int j=0; j< array.length; j++)
+				System.out.print(array[i][j] + " ");
+			System.out.println();
+		}
 	}
 }
 
