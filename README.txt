@@ -12,7 +12,7 @@ There are several objectives of this program:
   -Start building a portfolio of professional projects
 
 Rough Plan:
-  1) I will probably start with a simple text based version of the game in Java. 
+  1) I will probably start with a simple text based version of the game in Java.             *COMPLETE*
   2) From there I will work on porting it to a version with a user interface possibly in C#
   3) Web app?
   4) Mobile app?
