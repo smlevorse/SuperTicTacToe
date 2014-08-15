@@ -1,0 +1,9 @@
+C:\Users\Sean\git\SuperTicTacToe\SuperTicTacToeUI\SuperTicTacToeUI\bin\Debug\SuperTicTacToeUI.exe.config
+C:\Users\Sean\git\SuperTicTacToe\SuperTicTacToeUI\SuperTicTacToeUI\bin\Debug\SuperTicTacToeUI.exe
+C:\Users\Sean\git\SuperTicTacToe\SuperTicTacToeUI\SuperTicTacToeUI\bin\Debug\SuperTicTacToeUI.pdb
+C:\Users\Sean\git\SuperTicTacToe\SuperTicTacToeUI\SuperTicTacToeUI\obj\Debug\SuperTicTacToeUI.csprojResolveAssemblyReference.cache
+C:\Users\Sean\git\SuperTicTacToe\SuperTicTacToeUI\SuperTicTacToeUI\obj\Debug\SuperTicTacToeUI.frmGame.resources
+C:\Users\Sean\git\SuperTicTacToe\SuperTicTacToeUI\SuperTicTacToeUI\obj\Debug\SuperTicTacToeUI.Properties.Resources.resources
+C:\Users\Sean\git\SuperTicTacToe\SuperTicTacToeUI\SuperTicTacToeUI\obj\Debug\SuperTicTacToeUI.csproj.GenerateResource.Cache
+C:\Users\Sean\git\SuperTicTacToe\SuperTicTacToeUI\SuperTicTacToeUI\obj\Debug\SuperTicTacToeUI.exe
+C:\Users\Sean\git\SuperTicTacToe\SuperTicTacToeUI\SuperTicTacToeUI\obj\Debug\SuperTicTacToeUI.pdb
