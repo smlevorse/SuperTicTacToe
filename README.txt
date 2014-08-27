@@ -12,10 +12,13 @@ There are several objectives of this program:
   -Start building a portfolio of professional projects
 
 Rough Plan:
-  1) I will probably start with a simple text based version of the game in Java. 
-  2) From there I will work on porting it to a version with a user interface possibly in C#
+  1) I will probably start with a simple text based version of the game in Java.              *COMPLETE*
+  2) From there I will work on porting it to a version with a user interface possibly in C#*  *COMPLETE* 
   3) Web app?
   4) Mobile app?
+
+*For the version in C# with the user interface, I was not able to figure out how to use C# with github and Visual 
+Studio, so I made it entirely separate from github. If you would like a copy, message me here and I will send you the source code.
 
 Notes:
 ~Starting College soon. College will take up time and slow down development
@@ -23,6 +26,9 @@ Notes:
 
 The Game
 ==============
+I learned this game from some friends in highschool and it kept us entertained whenever we had a sub or finished our
+work early. There may be other variations of the game.
+
 The board is set up as a giant TicTacToe board with each cell containing another TicTacToe board as such:
 
 ....1.2.3....4.5.6....7.8.9....
@@ -125,7 +131,7 @@ d...X|O|O || \   / || _|X|_...d | d...|\-|| || \   / || _|X|_...d
 e...O|O|X ||   X   || X|O|O...e | e...||\|| ||   X   || X|O|O...e
 f...X|X|O || /   \ ||  | | ...f | f...||-\| || /   \ ||  | | ...f
 ....=======================.... | ....=======================....
-g.../¯¯¯\ || _|_|_ || \   /...g | g.../¯¯¯\ || _|_|_ || \   /...g
+g.../Â¯Â¯Â¯\ || _|_|_ || \   /...g | g.../Â¯Â¯Â¯\ || _|_|_ || \   /...g
 h...|   | || X|O|_ ||   x  ...h | h...|   | || X|O|_ ||   x  ...h
 i...\___/ ||  | |  || /   \...i | i...\___/ ||  | |  || /   \...i
 ....1.2.3....4.5.6....7.8.9.... | ....1.2.3....4.5.6....7.8.9....
@@ -144,7 +150,7 @@ d...|\-|| || \   / || _|X|_...d | d...|\-|| || \   / || _|X|_...d
 e...||\|| ||   X   || X|O|O...e | e...||\|| ||   X   || X|O|O...e
 f...||-\| || /   \ ||  | | ...f | f...||-\| || /   \ ||  | | ...f
 ....=======================.... | ....=======================....
-g.../¯¯¯\ || _|_|_ || \   /...g | g.../¯¯¯\ || _|_|_ || \   /...g
+g.../Â¯Â¯Â¯\ || _|_|_ || \   /...g | g.../Â¯Â¯Â¯\ || _|_|_ || \   /...g
 h...|   | || X|O|_ ||   x  ...h | h...|   | || X|O|_ ||   x  ...h
 i...\___/ ||  | |  || /   \...i | i...\___/ ||  | |  || /   \...i
 ....1.2.3....4.5.6....7.8.9.... | ....1.2.3....4.5.6....7.8.9....
@@ -154,7 +160,7 @@ Victory:
 In order to win, a player must win three internal boards in a straight line(horizontally, vertically, or diagonally).
 
 ....1.2.3....4.5.6....7.8.9.... | ....1.2.3....4.5.6....7.8.9....
-a...O|O|X || O|_|_ || /¯¯¯\...a | a...\   / || O|_|_ || /¯¯¯\...a
+a...O|O|X || O|_|_ || /Â¯Â¯Â¯\...a | a...\   / || O|_|_ || /Â¯Â¯Â¯\...a
 b...O|_|X || X|_|_ || |   |...b | b...  X   || X|_|_ || |   |...b
 c... | |X || X| |  || \___/...c | c.../   \ || X| |  || \___/...c
 ....=======================.... | ....=======================....
@@ -162,7 +168,7 @@ d...|\-|| || \   / || \   /...d | d...|\-|| || \   / || \   /...d
 e...||\|| ||   X   ||   X  ...e | e...||\|| ||   X   ||   X  ...e
 f...||-\| || /   \ || /   \...f | f...||-\| || /   \ || /   \...f
 ....=======================.... | ....=======================....
-g.../¯¯¯\ || _|_|_ || \   /...g | g.../¯¯¯\ || _|_|_ || \   /...g
+g.../Â¯Â¯Â¯\ || _|_|_ || \   /...g | g.../Â¯Â¯Â¯\ || _|_|_ || \   /...g
 h...|   | || X|O|O ||   x  ...h | h...|   | || X|O|O ||   x  ...h
 i...\___/ ||  |X|  || /   \...i | i...\___/ ||  |X|  || /   \...i
 ....1.2.3....4.5.6....7.8.9.... | ....1.2.3....4.5.6....7.8.9....
@@ -170,9 +176,6 @@ i...\___/ ||  |X|  || /   \...i | i...\___/ ||  |X|  || /   \...i
 It is also possible to tie if all nine boards have been won or nullified and neither player has three boards in a
 straight line. This is very disappointing to both parties. Sometimes you can consider whoever won more internal boards
 the victor, but still feel the shame in knowing that you didn't actually win.
-
-I learned this game from some friends in highschool and it kept us entertained whenever we had a sub or finished our
-work early. There may be other variations of the game.
 
 Copy Paste Board
 ==============
