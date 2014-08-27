@@ -12,10 +12,13 @@ There are several objectives of this program:
   -Start building a portfolio of professional projects
 
 Rough Plan:
-  1) I will probably start with a simple text based version of the game in Java.             *COMPLETE*
-  2) From there I will work on porting it to a version with a user interface possibly in C#
+  1) I will probably start with a simple text based version of the game in Java.              *COMPLETE*
+  2) From there I will work on porting it to a version with a user interface possibly in C#*  *COMPLETE* 
   3) Web app?
   4) Mobile app?
+
+*For the version in C# with the user interface, I was not able to figure out how to use C# with github and Visual 
+Studio, so I made it entirely separate from github. If you would like a copy, message me here and I will send you the source code.
 
 Notes:
 ~Starting College soon. College will take up time and slow down development
