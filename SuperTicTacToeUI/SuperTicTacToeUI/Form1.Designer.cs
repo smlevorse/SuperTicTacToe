@@ -111,6 +111,16 @@
 			this.cmd2222 = new System.Windows.Forms.Button();
 			this.txtConsole = new System.Windows.Forms.TextBox();
 			this.lblPlayer = new System.Windows.Forms.Label();
+			this.lbl00 = new System.Windows.Forms.Label();
+			this.lbl01 = new System.Windows.Forms.Label();
+			this.lbl02 = new System.Windows.Forms.Label();
+			this.lbl10 = new System.Windows.Forms.Label();
+			this.lbl11 = new System.Windows.Forms.Label();
+			this.lbl12 = new System.Windows.Forms.Label();
+			this.lbl20 = new System.Windows.Forms.Label();
+			this.lbl21 = new System.Windows.Forms.Label();
+			this.lbl22 = new System.Windows.Forms.Label();
+			this.cmdReset = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// cmd0000
@@ -844,13 +854,13 @@
 			// 
 			// txtConsole
 			// 
-			this.txtConsole.Location = new System.Drawing.Point(719, 20);
+			this.txtConsole.Location = new System.Drawing.Point(506, 101);
 			this.txtConsole.Multiline = true;
 			this.txtConsole.Name = "txtConsole";
 			this.txtConsole.ReadOnly = true;
 			this.txtConsole.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.txtConsole.ShortcutsEnabled = false;
-			this.txtConsole.Size = new System.Drawing.Size(187, 292);
+			this.txtConsole.Size = new System.Drawing.Size(116, 292);
 			this.txtConsole.TabIndex = 81;
 			this.txtConsole.TabStop = false;
 			// 
@@ -858,15 +868,117 @@
 			// 
 			this.lblPlayer.AutoSize = true;
 			this.lblPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.lblPlayer.Location = new System.Drawing.Point(500, 54);
+			this.lblPlayer.Location = new System.Drawing.Point(500, 28);
 			this.lblPlayer.Name = "lblPlayer";
 			this.lblPlayer.Size = new System.Drawing.Size(122, 32);
 			this.lblPlayer.TabIndex = 82;
 			this.lblPlayer.Text = "Player X";
 			// 
+			// lbl00
+			// 
+			this.lbl00.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lbl00.Location = new System.Drawing.Point(17, 20);
+			this.lbl00.Name = "lbl00";
+			this.lbl00.Size = new System.Drawing.Size(135, 132);
+			this.lbl00.TabIndex = 83;
+			this.lbl00.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.lbl00.Visible = false;
+			// 
+			// lbl01
+			// 
+			this.lbl01.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lbl01.Location = new System.Drawing.Point(177, 20);
+			this.lbl01.Name = "lbl01";
+			this.lbl01.Size = new System.Drawing.Size(135, 132);
+			this.lbl01.TabIndex = 84;
+			this.lbl01.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.lbl01.Visible = false;
+			// 
+			// lbl02
+			// 
+			this.lbl02.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lbl02.Location = new System.Drawing.Point(337, 20);
+			this.lbl02.Name = "lbl02";
+			this.lbl02.Size = new System.Drawing.Size(135, 132);
+			this.lbl02.TabIndex = 85;
+			this.lbl02.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.lbl02.Visible = false;
+			// 
+			// lbl10
+			// 
+			this.lbl10.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lbl10.Location = new System.Drawing.Point(17, 180);
+			this.lbl10.Name = "lbl10";
+			this.lbl10.Size = new System.Drawing.Size(135, 132);
+			this.lbl10.TabIndex = 86;
+			this.lbl10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.lbl10.Visible = false;
+			// 
+			// lbl11
+			// 
+			this.lbl11.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lbl11.Location = new System.Drawing.Point(177, 180);
+			this.lbl11.Name = "lbl11";
+			this.lbl11.Size = new System.Drawing.Size(135, 132);
+			this.lbl11.TabIndex = 87;
+			this.lbl11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.lbl11.Visible = false;
+			// 
+			// lbl12
+			// 
+			this.lbl12.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lbl12.Location = new System.Drawing.Point(337, 180);
+			this.lbl12.Name = "lbl12";
+			this.lbl12.Size = new System.Drawing.Size(135, 132);
+			this.lbl12.TabIndex = 88;
+			this.lbl12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.lbl12.Visible = false;
+			// 
+			// lbl20
+			// 
+			this.lbl20.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lbl20.Location = new System.Drawing.Point(17, 340);
+			this.lbl20.Name = "lbl20";
+			this.lbl20.Size = new System.Drawing.Size(135, 132);
+			this.lbl20.TabIndex = 89;
+			this.lbl20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.lbl20.Visible = false;
+			// 
+			// lbl21
+			// 
+			this.lbl21.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lbl21.Location = new System.Drawing.Point(177, 340);
+			this.lbl21.Name = "lbl21";
+			this.lbl21.Size = new System.Drawing.Size(135, 132);
+			this.lbl21.TabIndex = 90;
+			this.lbl21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.lbl21.Visible = false;
+			// 
+			// lbl22
+			// 
+			this.lbl22.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.lbl22.Location = new System.Drawing.Point(337, 340);
+			this.lbl22.Name = "lbl22";
+			this.lbl22.Size = new System.Drawing.Size(135, 132);
+			this.lbl22.TabIndex = 91;
+			this.lbl22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.lbl22.Visible = false;
+			// 
+			// cmdReset
+			// 
+			this.cmdReset.Location = new System.Drawing.Point(506, 435);
+			this.cmdReset.Name = "cmdReset";
+			this.cmdReset.Size = new System.Drawing.Size(116, 34);
+			this.cmdReset.TabIndex = 100000;
+			this.cmdReset.TabStop = false;
+			this.cmdReset.Text = "Reset";
+			this.cmdReset.UseVisualStyleBackColor = true;
+			this.cmdReset.Click += new System.EventHandler(this.cmdReset_Click);
+			// 
 			// frmGame
 			// 
-			this.ClientSize = new System.Drawing.Size(932, 503);
+			this.ClientSize = new System.Drawing.Size(714, 503);
+			this.Controls.Add(this.cmdReset);
 			this.Controls.Add(this.lblPlayer);
 			this.Controls.Add(this.txtConsole);
 			this.Controls.Add(this.cmd2222);
@@ -877,7 +989,6 @@
 			this.Controls.Add(this.cmd2210);
 			this.Controls.Add(this.cmd2202);
 			this.Controls.Add(this.cmd2201);
-			this.Controls.Add(this.cmd2200);
 			this.Controls.Add(this.cmd2122);
 			this.Controls.Add(this.cmd2121);
 			this.Controls.Add(this.cmd2120);
@@ -886,7 +997,6 @@
 			this.Controls.Add(this.cmd2110);
 			this.Controls.Add(this.cmd2102);
 			this.Controls.Add(this.cmd2101);
-			this.Controls.Add(this.cmd2100);
 			this.Controls.Add(this.cmd2022);
 			this.Controls.Add(this.cmd2021);
 			this.Controls.Add(this.cmd2020);
@@ -895,7 +1005,6 @@
 			this.Controls.Add(this.cmd2010);
 			this.Controls.Add(this.cmd2002);
 			this.Controls.Add(this.cmd2001);
-			this.Controls.Add(this.cmd2000);
 			this.Controls.Add(this.cmd1222);
 			this.Controls.Add(this.cmd1221);
 			this.Controls.Add(this.cmd1220);
@@ -904,7 +1013,6 @@
 			this.Controls.Add(this.cmd1210);
 			this.Controls.Add(this.cmd1202);
 			this.Controls.Add(this.cmd1201);
-			this.Controls.Add(this.cmd1200);
 			this.Controls.Add(this.cmd1122);
 			this.Controls.Add(this.cmd1121);
 			this.Controls.Add(this.cmd1120);
@@ -913,7 +1021,6 @@
 			this.Controls.Add(this.cmd1110);
 			this.Controls.Add(this.cmd1102);
 			this.Controls.Add(this.cmd1101);
-			this.Controls.Add(this.cmd1100);
 			this.Controls.Add(this.cmd1022);
 			this.Controls.Add(this.cmd1021);
 			this.Controls.Add(this.cmd1020);
@@ -922,7 +1029,6 @@
 			this.Controls.Add(this.cmd1010);
 			this.Controls.Add(this.cmd1002);
 			this.Controls.Add(this.cmd1001);
-			this.Controls.Add(this.cmd1000);
 			this.Controls.Add(this.cmd0222);
 			this.Controls.Add(this.cmd0221);
 			this.Controls.Add(this.cmd0220);
@@ -931,7 +1037,6 @@
 			this.Controls.Add(this.cmd0210);
 			this.Controls.Add(this.cmd0202);
 			this.Controls.Add(this.cmd0201);
-			this.Controls.Add(this.cmd0200);
 			this.Controls.Add(this.cmd0122);
 			this.Controls.Add(this.cmd0121);
 			this.Controls.Add(this.cmd0120);
@@ -940,7 +1045,6 @@
 			this.Controls.Add(this.cmd0110);
 			this.Controls.Add(this.cmd0102);
 			this.Controls.Add(this.cmd0101);
-			this.Controls.Add(this.cmd0100);
 			this.Controls.Add(this.cmd0022);
 			this.Controls.Add(this.cmd0021);
 			this.Controls.Add(this.cmd0020);
@@ -949,7 +1053,24 @@
 			this.Controls.Add(this.cmd0010);
 			this.Controls.Add(this.cmd0002);
 			this.Controls.Add(this.cmd0001);
+			this.Controls.Add(this.lbl02);
+			this.Controls.Add(this.lbl01);
+			this.Controls.Add(this.lbl00);
+			this.Controls.Add(this.lbl21);
+			this.Controls.Add(this.lbl22);
+			this.Controls.Add(this.lbl20);
+			this.Controls.Add(this.lbl12);
+			this.Controls.Add(this.lbl11);
+			this.Controls.Add(this.lbl10);
+			this.Controls.Add(this.cmd0200);
+			this.Controls.Add(this.cmd0100);
 			this.Controls.Add(this.cmd0000);
+			this.Controls.Add(this.cmd2100);
+			this.Controls.Add(this.cmd2200);
+			this.Controls.Add(this.cmd2000);
+			this.Controls.Add(this.cmd1200);
+			this.Controls.Add(this.cmd1100);
+			this.Controls.Add(this.cmd1000);
 			this.Name = "frmGame";
 			this.Text = "Super TicTacToe";
 			this.Load += new System.EventHandler(this.frmGame_Load);
@@ -1043,6 +1164,16 @@
 		private System.Windows.Forms.Button cmd1212;
 		private System.Windows.Forms.TextBox txtConsole;
 		public System.Windows.Forms.Label lblPlayer;
+		private System.Windows.Forms.Label lbl00;
+		private System.Windows.Forms.Label lbl01;
+		private System.Windows.Forms.Label lbl02;
+		private System.Windows.Forms.Label lbl10;
+		private System.Windows.Forms.Label lbl11;
+		private System.Windows.Forms.Label lbl12;
+		private System.Windows.Forms.Label lbl20;
+		private System.Windows.Forms.Label lbl21;
+		private System.Windows.Forms.Label lbl22;
+		private System.Windows.Forms.Button cmdReset;
 
 		
 	}
