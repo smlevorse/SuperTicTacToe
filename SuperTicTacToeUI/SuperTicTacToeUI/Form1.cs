@@ -294,5 +294,23 @@ namespace SuperTicTacToeUI
 				for (int j = 0; j < 3; j++)
 					outerBoard[i, j] = '-';
 		}
-	}
+	}// Partial class
+
+    public class playerAI 
+    {
+        public char marker { get; set; }
+        
+        public playerAI(char player)
+        {
+            marker = player;   
+        }
+
+        public playerAI() {
+            marker = 'X';
+        }
+
+        public object makeMove(char[,,,] gameBoard, char[,] outerBoard)
+        {   
+        }
+    }
 }
