@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -252,7 +253,7 @@ namespace SuperTicTacToeUI
 		}
 
 		//checks to see if a board is full but has no 3 in a rows
-		public bool isFull(char[,] board)
+		public static bool isFull(char[,] board)
 		{
  			for(int i=0; i<3; i++)
 				for (int j = 0; j < 3; j++)
@@ -296,10 +297,23 @@ namespace SuperTicTacToeUI
 		}
 	}// Partial class
 
+    private class ButtonRef
+    {
+        public Button but { get; set; }
+        public int val { get; set; }
+
+        public ButtonRef(Button button, int value)
+        {
+            but = button;
+            val = value;
+        }
+    }
+
     public class playerAI 
     {
-        public char marker { get; set; }
-        
+        public static char marker { get; set; }
+        public static ArrayList buttons = new ArrayList();
+
         public playerAI(char player)
         {
             marker = player;   
@@ -309,10 +323,166 @@ namespace SuperTicTacToeUI
             marker = 'X';
         }
 
-        public object makeMove(char[,,,] gameBoard, char[,] outerBoard)
+        public object makeMove(char[,,,] gameBoard, char[,] outerBoard, Control.ControlCollection ctrColl)
         {
+            //Detect which buttons are enabled and store them to arraylist
+            foreach (Control control in ctrColl)
+            {
+                if (control is Button && control.Enabled && control.TabIndex < 81)
+                    buttons.Add(new ButtonRef((Button)control, 0));
+            }
+
+            //code to keep VS happy
             object blah = new object(); //class was starting, had to put away
             return blah;
+        }
+
+        //See if the AI can win
+        private static void checkForWinningMove(char[,,,] gameBoard, char [,] outerBoard)
+        {
+            //create temporary arrays
+            char[, , ,] tempBoard = new char[3, 3, 3, 3];
+            for (int i = 0; i < 3; i++)
+                for (int j = 0; j < 3; j++)
+                    for (int k = 0; k < 3; k++)
+                        for (int l = 0; l < 3; l++)
+                            tempBoard[i, j, k, l] = gameBoard[i, j, k, l];
+            char[,] tempOuterBoard = new char[3, 3];
+            for (int i = 0; i < 3; i++)
+                for (int j = 0; j < 3; j++)
+                    tempOuterBoard[i, j] = outerBoard[i, j];
+
+
+            //declare variables
+            int outRow;
+            int outCol;
+            int inRow;
+            int inCol;
+            int n;
+
+            foreach (ButtonRef testClick in buttons)
+            {
+                n = testClick.but.TabIndex;
+                inCol = n % 3;
+                n = n / 3;
+                inRow = n % 3;
+                n = n / 3;
+                outCol = n % 3;
+                n = n / 3;
+                outRow = n;
+
+                tempBoard[outRow, outCol, inRow, inCol] = marker;
+
+                if (frmGame.threeInARow(frmGame.packageBoard(tempBoard, outRow, outCol)) != '-')
+                    tempOuterBoard[outRow, outCol] = frmGame.threeInARow(frmGame.packageBoard(tempBoard, outRow, outCol));
+
+                if (frmGame.threeInARow(tempOuterBoard) == marker)
+                    testClick.val += 1000000;
+            }
+
+
+        }
+
+        //make sure the AI doesn't give the player a win
+        private static void checkForGivenWin(char[, , ,] gameBoard, char[,] outerBoard)
+        {
+            //create temporary arrays
+            char[, , ,] tempBoard = new char[3, 3, 3, 3];
+            for (int i = 0; i < 3; i++)
+                for (int j = 0; j < 3; j++)
+                    for (int k = 0; k < 3; k++)
+                        for (int l = 0; l < 3; l++)
+                            tempBoard[i, j, k, l] = gameBoard[i, j, k, l];
+            char[,] tempOuterBoard = new char[3, 3];
+            for (int i = 0; i < 3; i++)
+                for (int j = 0; j < 3; j++)
+                    tempOuterBoard[i, j] = outerBoard[i, j];
+
+            char[,] tempInnerBoard = new char[3, 3];
+
+            //declare variables
+            int outRow;
+            int outCol;
+            int inRow;
+            int inCol;
+            int n;
+
+            foreach (ButtonRef testClick in buttons)
+            {
+                n = testClick.but.TabIndex;
+                inCol = n % 3;
+                n = n / 3;
+                inRow = n % 3;
+                n = n / 3;
+                outCol = n % 3;
+                n = n / 3;
+                outRow = n;
+
+                tempBoard[outRow, outCol, inRow, inCol] = marker;
+                if (!frmGame.isFull(frmGame.packageBoard(tempBoard, inRow, outRow)) && tempOuterBoard[inRow, outCol] == '-')
+                {
+                    for (int i = 0; i < 3; i++)
+                    {
+                        for (int j = 0; j < 3; j++)
+                        {
+                            for (int k = 0; k < 3; k++)
+                            {
+                                for (int l = 0; l < 3; l++)
+                                {
+                                    tempInnerBoard[k, l] = tempBoard[inRow, inCol, k, l];
+                                }
+                            }
+                            if (tempInnerBoard[i, j] == '-')
+                                if (frmGame.threeInARow(tempInnerBoard) != '-' && frmGame.threeInARow(tempInnerBoard) != marker)
+                                    switch (marker)
+                                    {
+                                        case 'X':
+                                            tempInnerBoard[i, j] = 'O';
+                                            break;
+                                        case 'O':
+                                            tempInnerBoard[i, j] = 'X';
+                                            break;
+                                    }
+                            if (frmGame.threeInARow(tempInnerBoard) != marker && frmGame.threeInARow(tempInnerBoard) != '-')
+                                testClick.val -= 1000;
+                        }
+                    }//first loop
+                }//if
+                else
+                {
+                    for (int i = 0; i < 3; i++)
+                    {
+                        for (int j = 0; j < 3; j++)
+                        {
+                            for (int k = 0; k < 3; k++)
+                            {
+                                for (int l = 0; l < 3; l++)
+                                {
+                                    if (tempBoard[i, j, k, l] == '-' && tempOuterBoard[i,j] == '-')
+                                    {
+                                        switch (marker)
+                                        {
+                                            case 'X':
+                                                tempBoard[i, j, k, l] = 'O';
+                                                break;
+                                            case 'O':
+                                                tempBoard[i, j, k, l] = 'X';
+                                                break;
+                                        }
+                                        if (frmGame.threeInARow(frmGame.packageBoard(tempBoard, i, j)) != '-' && frmGame.threeInARow(frmGame.packageBoard(tempBoard, i, j)) != marker)
+                                            tempOuterBoard[i, j] = frmGame.threeInARow(frmGame.packageBoard(tempBoard, i, j));
+                                        if (frmGame.threeInARow(tempOuterBoard) != '-' && frmGame.threeInARow(tempOuterBoard) != marker)
+                                            testClick.val -= 1000;
+                                        tempBoard[i, j, k, l] = '-';
+                                        tempOuterBoard[i, j] = '-';
+                                    }
+
+                                }
+                            }
+                        }
+                    }//loop
+                }//else
+            }
         }
     }
 }
