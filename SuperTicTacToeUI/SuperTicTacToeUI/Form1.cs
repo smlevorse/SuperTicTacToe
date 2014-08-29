@@ -310,7 +310,9 @@ namespace SuperTicTacToeUI
         }
 
         public object makeMove(char[,,,] gameBoard, char[,] outerBoard)
-        {   
+        {
+            object blah = new object(); //class was starting, had to put away
+            return blah;
         }
     }
 }
