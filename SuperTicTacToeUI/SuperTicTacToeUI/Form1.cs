@@ -312,7 +312,7 @@ namespace SuperTicTacToeUI
     public class playerAI 
     {
         public static char marker { get; set; }
-        public static ArrayList buttons = new ArrayList();
+        public static List<ButtonRef> buttons = new List<ButtonRef>();
 
         public playerAI(char player)
         {
@@ -332,9 +332,35 @@ namespace SuperTicTacToeUI
                     buttons.Add(new ButtonRef((Button)control, 0));
             }
 
-            //code to keep VS happy
-            object blah = new object(); //class was starting, had to put away
-            return blah;
+            //run through tests
+            checkForWinningMove(gameBoard, outerBoard);
+            checkForGivenWin(gameBoard, outerBoard);
+            checkForInternalWin(gameBoard, outerBoard);
+            checkForGivenBoard(gameBoard, outerBoard);
+            checkForTwoInARow(gameBoard, outerBoard);
+            checkForCorner(gameBoard, outerBoard);
+            checkForClosedBoard(gameBoard, outerBoard);
+
+            //sort objects
+            int val;
+            int index;
+            List<ButtonRef> sortedButtons = new List<ButtonRef>();
+
+            while (buttons.Count > 0)
+            {
+                val = buttons[0].val;
+                index = 0;
+                for (int i = 1; i < buttons.Count; i++)
+                    if (buttons[i].val > val)
+                    {
+                        val = buttons[i].val;
+                        index = i;
+                    }
+                sortedButtons.Add(buttons[index]);
+                buttons.RemoveAt(index);       
+            }
+
+            return sortedButtons[0].but;
         }
 
         //See if the AI can win
@@ -378,6 +404,8 @@ namespace SuperTicTacToeUI
 
                 if (frmGame.threeInARow(tempOuterBoard) == marker)
                     testClick.val += 1000000;
+
+                tempBoard[outRow, outCol, inRow, inCol] = '-';
             }
 
 
@@ -482,6 +510,302 @@ namespace SuperTicTacToeUI
                         }
                     }//loop
                 }//else
+                tempBoard[outRow, outCol, inRow, inCol] = '-';
+            }//foreach
+        }
+
+        //Prioritize winning a board
+        private static void checkForInternalWin(char[, , ,] gameBoard, char[,] outerBoard)
+        { 
+            //create temporary arrays
+            char[, , ,] tempBoard = new char[3, 3, 3, 3];
+            for (int i = 0; i < 3; i++)
+                for (int j = 0; j < 3; j++)
+                    for (int k = 0; k < 3; k++)
+                        for (int l = 0; l < 3; l++)
+                            tempBoard[i, j, k, l] = gameBoard[i, j, k, l];
+            char[,] tempOuterBoard = new char[3, 3];
+            for (int i = 0; i < 3; i++)
+                for (int j = 0; j < 3; j++)
+                    tempOuterBoard[i, j] = outerBoard[i, j];
+
+
+            //declare variables
+            int outRow;
+            int outCol;
+            int inRow;
+            int inCol;
+            int n;
+
+            foreach (ButtonRef testClick in buttons)
+            {
+                n = testClick.but.TabIndex;
+                inCol = n % 3;
+                n = n / 3;
+                inRow = n % 3;
+                n = n / 3;
+                outCol = n % 3;
+                n = n / 3;
+                outRow = n;
+
+                tempBoard[outRow, outCol, inRow, inCol] = marker;
+                if (frmGame.threeInARow(frmGame.packageBoard(tempBoard, outRow, outCol)) == marker)
+                    testClick.val += 5;
+                tempBoard[outRow, outCol, inRow, inCol] = '-';
+            }
+        }
+
+        //Avoid giving opponent other boards
+        private static void checkForGivenBoard(char[, , ,] gameBoard, char[,] outerBoard)
+        {
+            //create temporary arrays
+            char[, , ,] tempBoard = new char[3, 3, 3, 3];
+            for (int i = 0; i < 3; i++)
+                for (int j = 0; j < 3; j++)
+                    for (int k = 0; k < 3; k++)
+                        for (int l = 0; l < 3; l++)
+                            tempBoard[i, j, k, l] = gameBoard[i, j, k, l];
+            char[,] tempOuterBoard = new char[3, 3];
+            for (int i = 0; i < 3; i++)
+                for (int j = 0; j < 3; j++)
+                    tempOuterBoard[i, j] = outerBoard[i, j];
+            
+            char[,] tempInnerBoard = new char[3, 3];
+
+            //declare variables
+            int outRow;
+            int outCol;
+            int inRow;
+            int inCol;
+            int n;
+
+            foreach (ButtonRef testClick in buttons)
+            {
+                n = testClick.but.TabIndex;
+                inCol = n % 3;
+                n = n / 3;
+                inRow = n % 3;
+                n = n / 3;
+                outCol = n % 3;
+                n = n / 3;
+                outRow = n;
+
+                tempBoard[outRow, outCol, inRow, inCol] = marker;
+                if (!frmGame.isFull(frmGame.packageBoard(tempBoard, inRow, outRow)) && tempOuterBoard[inRow, outCol] == '-')
+                {
+                    for (int i = 0; i < 3; i++)
+                    {
+                        for (int j = 0; j < 3; j++)
+                        {
+                            for (int k = 0; k < 3; k++)
+                            {
+                                for (int l = 0; l < 3; l++)
+                                {
+                                    tempInnerBoard[k, l] = tempBoard[inRow, inCol, k, l];
+                                }
+                            }
+                            if (tempInnerBoard[i, j] == '-')
+                                if (frmGame.threeInARow(tempInnerBoard) != '-' && frmGame.threeInARow(tempInnerBoard) != marker)
+                                    testClick.val -= 3;
+                        }
+                    }//first loop
+                }//if
+                else
+                {
+                    for (int i = 0; i < 3; i++)
+                    {
+                        for (int j = 0; j < 3; j++)
+                        {
+                            for (int k = 0; k < 3; k++)
+                            {
+                                for (int l = 0; l < 3; l++)
+                                {
+                                    if (tempBoard[i, j, k, l] == '-' && tempOuterBoard[i, j] == '-')
+                                    {
+                                        switch (marker)
+                                        {
+                                            case 'X':
+                                                tempBoard[i, j, k, l] = 'O';
+                                                break;
+                                            case 'O':
+                                                tempBoard[i, j, k, l] = 'X';
+                                                break;
+                                        }
+                                        if (frmGame.threeInARow(frmGame.packageBoard(tempBoard, i, j)) != '-' && frmGame.threeInARow(frmGame.packageBoard(tempBoard, i, j)) != marker)
+                                            testClick.val -= 3;
+                                        tempBoard[i, j, k, l] = '-';
+                                        tempOuterBoard[i, j] = '-';
+                                    }
+
+                                }
+                            }
+                        }
+                    }//loop
+                }//else
+                tempBoard[outRow, outCol, inRow, inCol] = '-';
+            }//foreach
+        }
+
+        //Look for getting two in a row that is not blocked
+        private static void checkForTwoInARow(char[, , ,] gameBoard, char[,] outerBoard)
+        {
+            //create temporary arrays
+            char[, , ,] tempBoard = new char[3, 3, 3, 3];
+            for (int i = 0; i < 3; i++)
+                for (int j = 0; j < 3; j++)
+                    for (int k = 0; k < 3; k++)
+                        for (int l = 0; l < 3; l++)
+                            tempBoard[i, j, k, l] = gameBoard[i, j, k, l];
+            char[,] tempOuterBoard = new char[3, 3];
+            for (int i = 0; i < 3; i++)
+                for (int j = 0; j < 3; j++)
+                    tempOuterBoard[i, j] = outerBoard[i, j];
+
+
+            //declare variables
+            int outRow;
+            int outCol;
+            int inRow;
+            int inCol;
+            int n;
+            int counter; 
+
+            foreach (ButtonRef testClick in buttons)
+            {
+                n = testClick.but.TabIndex;
+                inCol = n % 3;
+                n = n / 3;
+                inRow = n % 3;
+                n = n / 3;
+                outCol = n % 3;
+                n = n / 3;
+                outRow = n;
+
+                counter = 0;
+
+                tempBoard[outRow, outCol, inRow, inCol] = marker;
+
+                //check row
+                for (int i = 0; i < 3; i++)
+                    if (tempBoard[outRow, outCol, inRow, i] == marker)
+                        counter++;
+                    else if (tempBoard[outRow, outCol, inRow, i] == '-')
+                        counter += 0;
+                    else
+                        counter = 0;
+                testClick.val += counter;
+
+                //check column
+                for (int i = 0; i < 3; i++)
+                    if (tempBoard[outRow, outCol, i, inCol] == marker)
+                        counter++;
+                    else if (tempBoard[outRow, outCol, inRow, i] == '-')
+                        counter += 0;
+                    else
+                        counter = 0;
+                testClick.val += counter;
+
+                //check diagonal
+                for (int i = 0; i < 3; i++)
+                    if (tempBoard[outRow, outCol, i, i] == marker)
+                        counter++;
+                    else if (tempBoard[outRow, outCol, inRow, i] == '-')
+                        counter += 0;
+                    else
+                        counter = 0;
+                testClick.val += counter;
+
+                //check row
+                for (int i = 0; i < 3; i++)
+                    if (tempBoard[outRow, outCol, 3-i, i] == marker)
+                        counter++;
+                    else if (tempBoard[outRow, 3-i, inRow, i] == '-')
+                        counter += 0;
+                    else
+                        counter = 0;
+                testClick.val += counter;
+
+                tempBoard[outRow, outCol, inRow, inCol] = '-';
+            }
+ 
+        }
+
+        //prioritize corners
+        private static void checkForCorner(char[, , ,] gameBoard, char[,] outerBoard)
+        { 
+            //create temporary arrays
+            char[, , ,] tempBoard = new char[3, 3, 3, 3];
+            for (int i = 0; i < 3; i++)
+                for (int j = 0; j < 3; j++)
+                    for (int k = 0; k < 3; k++)
+                        for (int l = 0; l < 3; l++)
+                            tempBoard[i, j, k, l] = gameBoard[i, j, k, l];
+            char[,] tempOuterBoard = new char[3, 3];
+            for (int i = 0; i < 3; i++)
+                for (int j = 0; j < 3; j++)
+                    tempOuterBoard[i, j] = outerBoard[i, j];
+
+
+            //declare variables
+            int outRow;
+            int outCol;
+            int inRow;
+            int inCol;
+            int n;
+
+            foreach (ButtonRef testClick in buttons)
+            {
+                n = testClick.but.TabIndex;
+                inCol = n % 3;
+                n = n / 3;
+                inRow = n % 3;
+                n = n / 3;
+                outCol = n % 3;
+                n = n / 3;
+                outRow = n;
+
+                if (inRow % 2 != 0 && inCol % 2 != 0)
+                    testClick.val++;
+            }
+        
+        }
+
+        //avoid sending opponent to closed boards
+        private static void checkForClosedBoard(char[, , ,] gameBoard, char[,] outerBoard)
+        { 
+            //create temporary arrays
+            char[, , ,] tempBoard = new char[3, 3, 3, 3];
+            for (int i = 0; i < 3; i++)
+                for (int j = 0; j < 3; j++)
+                    for (int k = 0; k < 3; k++)
+                        for (int l = 0; l < 3; l++)
+                            tempBoard[i, j, k, l] = gameBoard[i, j, k, l];
+            char[,] tempOuterBoard = new char[3, 3];
+            for (int i = 0; i < 3; i++)
+                for (int j = 0; j < 3; j++)
+                    tempOuterBoard[i, j] = outerBoard[i, j];
+
+
+            //declare variables
+            int outRow;
+            int outCol;
+            int inRow;
+            int inCol;
+            int n;
+
+            foreach (ButtonRef testClick in buttons)
+            {
+                n = testClick.but.TabIndex;
+                inCol = n % 3;
+                n = n / 3;
+                inRow = n % 3;
+                n = n / 3;
+                outCol = n % 3;
+                n = n / 3;
+                outRow = n;
+
+                if (frmGame.isFull(frmGame.packageBoard(tempBoard, inRow, inCol)) || tempOuterBoard[inRow, inCol] != '-')
+                    testClick.val-=2;
             }
         }
     }
