@@ -16,7 +16,9 @@ namespace SuperTicTacToeUI
 		public char[,,,] gameBoard;
 		public char[,] outerBoard;
 		public char player;
-		
+        bool aiEnabled;
+        bool aiTurn;
+        public playerAI ai;
 
 		public frmGame()
 		{
@@ -36,6 +38,9 @@ namespace SuperTicTacToeUI
 					outerBoard[i, j] = '-';
 			changePlayer('X');
 
+            aiEnabled = radComputer.Checked;
+            if (aiEnabled)
+                ai = new playerAI('O');
 		}
 
 		public void changePlayer(char newPlayer)
@@ -183,13 +188,25 @@ namespace SuperTicTacToeUI
 
 				}
 
-				//toggle player
-				if (player == 'X')
-					changePlayer('O');
-				else if (player == 'O')
-					changePlayer('X');
+                buttonPressed.Enabled = false;
+                
+                //toggle player
+                if (player == 'X')
+                    changePlayer('O');
+                else if (player == 'O')
+                    changePlayer('X');
 
-				buttonPressed.Enabled = false;
+                if (player == ai.marker)
+                {
+                    List<Button> collection = new List<Button>();
+                    foreach(Control control in this.Controls)
+                        if (control is Button && control.TabIndex < 81)
+                            collection.Add((Button)control);
+                    buttonPressed = ai.makeMove(gameBoard, outerBoard, collection);
+                }
+                  
+
+				
 			}
 		}
 
@@ -309,9 +326,16 @@ namespace SuperTicTacToeUI
         }
     }
 
+    /*
+     * STOP!
+     * You're about to see some hideous code! When I was coding all of the "Check for" methods, 
+     * I was focussing on getting it working, not efficiency, so there is a lot of cody that is 
+     * the same and could be condensed into one method. 
+    */
+
     public class playerAI 
     {
-        public static char marker { get; set; }
+        public char marker { get; set; }
         public static List<ButtonRef> buttons = new List<ButtonRef>();
 
         public playerAI(char player)
@@ -323,12 +347,12 @@ namespace SuperTicTacToeUI
             marker = 'X';
         }
 
-        public object makeMove(char[,,,] gameBoard, char[,] outerBoard, Control.ControlCollection ctrColl)
+        public object makeMove(char[,,,] gameBoard, char[,] outerBoard, List<Button> ctrColl)
         {
             //Detect which buttons are enabled and store them to arraylist
-            foreach (Control control in ctrColl)
+            foreach (Button control in ctrColl)
             {
-                if (control is Button && control.Enabled && control.TabIndex < 81)
+                if (control.Enabled)
                     buttons.Add(new ButtonRef((Button)control, 0));
             }
 
@@ -364,7 +388,7 @@ namespace SuperTicTacToeUI
         }
 
         //See if the AI can win
-        private static void checkForWinningMove(char[,,,] gameBoard, char [,] outerBoard)
+        private void checkForWinningMove(char[,,,] gameBoard, char [,] outerBoard)
         {
             //create temporary arrays
             char[, , ,] tempBoard = new char[3, 3, 3, 3];
@@ -412,7 +436,7 @@ namespace SuperTicTacToeUI
         }
 
         //make sure the AI doesn't give the player a win
-        private static void checkForGivenWin(char[, , ,] gameBoard, char[,] outerBoard)
+        private void checkForGivenWin(char[, , ,] gameBoard, char[,] outerBoard)
         {
             //create temporary arrays
             char[, , ,] tempBoard = new char[3, 3, 3, 3];
@@ -515,7 +539,7 @@ namespace SuperTicTacToeUI
         }
 
         //Prioritize winning a board
-        private static void checkForInternalWin(char[, , ,] gameBoard, char[,] outerBoard)
+        private void checkForInternalWin(char[, , ,] gameBoard, char[,] outerBoard)
         { 
             //create temporary arrays
             char[, , ,] tempBoard = new char[3, 3, 3, 3];
@@ -556,7 +580,7 @@ namespace SuperTicTacToeUI
         }
 
         //Avoid giving opponent other boards
-        private static void checkForGivenBoard(char[, , ,] gameBoard, char[,] outerBoard)
+        private void checkForGivenBoard(char[, , ,] gameBoard, char[,] outerBoard)
         {
             //create temporary arrays
             char[, , ,] tempBoard = new char[3, 3, 3, 3];
@@ -647,7 +671,7 @@ namespace SuperTicTacToeUI
         }
 
         //Look for getting two in a row that is not blocked
-        private static void checkForTwoInARow(char[, , ,] gameBoard, char[,] outerBoard)
+        private void checkForTwoInARow(char[, , ,] gameBoard, char[,] outerBoard)
         {
             //create temporary arrays
             char[, , ,] tempBoard = new char[3, 3, 3, 3];
@@ -731,7 +755,7 @@ namespace SuperTicTacToeUI
         }
 
         //prioritize corners
-        private static void checkForCorner(char[, , ,] gameBoard, char[,] outerBoard)
+        private void checkForCorner(char[, , ,] gameBoard, char[,] outerBoard)
         { 
             //create temporary arrays
             char[, , ,] tempBoard = new char[3, 3, 3, 3];
