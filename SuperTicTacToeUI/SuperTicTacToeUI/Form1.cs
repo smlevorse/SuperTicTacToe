@@ -196,13 +196,14 @@ namespace SuperTicTacToeUI
                 else if (player == 'O')
                     changePlayer('X');
 
-                if (player == ai.marker)
+                if (aiEnabled && player == ai.marker)
                 {
                     List<Button> collection = new List<Button>();
                     foreach(Control control in this.Controls)
                         if (control is Button && control.TabIndex < 81)
                             collection.Add((Button)control);
                     buttonPressed = ai.makeMove(gameBoard, outerBoard, collection);
+                    buttonPressed.PerformClick();
                 }
                   
 
@@ -311,10 +312,14 @@ namespace SuperTicTacToeUI
 			for (int i = 0; i < 3; i++)
 				for (int j = 0; j < 3; j++)
 					outerBoard[i, j] = '-';
+
+            aiEnabled = radComputer.Checked;
+            if (aiEnabled)
+                ai = new playerAI('O');
 		}
 	}// Partial class
 
-    private class ButtonRef
+    public class ButtonRef
     {
         public Button but { get; set; }
         public int val { get; set; }
@@ -347,7 +352,7 @@ namespace SuperTicTacToeUI
             marker = 'X';
         }
 
-        public object makeMove(char[,,,] gameBoard, char[,] outerBoard, List<Button> ctrColl)
+        public Button makeMove(char[,,,] gameBoard, char[,] outerBoard, List<Button> ctrColl)
         {
             //Detect which buttons are enabled and store them to arraylist
             foreach (Button control in ctrColl)
@@ -741,9 +746,9 @@ namespace SuperTicTacToeUI
 
                 //check row
                 for (int i = 0; i < 3; i++)
-                    if (tempBoard[outRow, outCol, 3-i, i] == marker)
+                    if (tempBoard[outRow, outCol, 2-i, i] == marker)
                         counter++;
-                    else if (tempBoard[outRow, 3-i, inRow, i] == '-')
+                    else if (tempBoard[outRow, 2-i, inRow, i] == '-')
                         counter += 0;
                     else
                         counter = 0;
