@@ -16,6 +16,7 @@ Rough Plan:
   2) From there I will work on porting it to a version with a user interface possibly in C#*  *COMPLETE* 
   3) Web app?
   4) Mobile app?
+  5) AI to make the game single player                                                        *Skipping 3 and 4 to do this*
 
 *For the version in C# with the user interface, I was not able to figure out how to use C# with github and Visual 
 Studio, so I made it entirely separate from github. If you would like a copy, message me here and I will send you the source code.
