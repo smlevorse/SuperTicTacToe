@@ -315,7 +315,17 @@ namespace SuperTicTacToeUI
 
             aiEnabled = radComputer.Checked;
             if (aiEnabled)
-                ai = new playerAI('O');
+            {
+                switch(player)
+                { 
+                    case 'X': 
+                    ai = new playerAI('O');
+                    break;
+                    case 'O':
+                    ai = new playerAI('X');
+                    break;
+                }
+            }
 		}
 	}// Partial class
 
@@ -335,7 +345,8 @@ namespace SuperTicTacToeUI
      * STOP!
      * You're about to see some hideous code! When I was coding all of the "Check for" methods, 
      * I was focussing on getting it working, not efficiency, so there is a lot of cody that is 
-     * the same and could be condensed into one method. 
+     * the same and could be condensed into one method. Also some methods don't work as inteded 
+     * yet.
     */
 
     public class playerAI 
@@ -373,6 +384,7 @@ namespace SuperTicTacToeUI
             //sort objects
             int val;
             int index;
+            Random randomizer =  new Random();
             List<ButtonRef> sortedButtons = new List<ButtonRef>();
 
             while (buttons.Count > 0)
@@ -389,7 +401,15 @@ namespace SuperTicTacToeUI
                 buttons.RemoveAt(index);       
             }
 
-            return sortedButtons[0].but;
+            //check for equal priority and randomly chose
+            {
+                index = 1;
+                val = sortedButtons[0].val;
+                while (val == sortedButtons[index].val)
+                    index++;
+            }
+
+            return sortedButtons[randomizer.Next(0, index)].but;
         }
 
         //See if the AI can win
@@ -579,7 +599,7 @@ namespace SuperTicTacToeUI
 
                 tempBoard[outRow, outCol, inRow, inCol] = marker;
                 if (frmGame.threeInARow(frmGame.packageBoard(tempBoard, outRow, outCol)) == marker)
-                    testClick.val += 5;
+                    testClick.val += 10;
                 tempBoard[outRow, outCol, inRow, inCol] = '-';
             }
         }
@@ -793,7 +813,7 @@ namespace SuperTicTacToeUI
                 n = n / 3;
                 outRow = n;
 
-                if (inRow % 2 != 0 && inCol % 2 != 0)
+                if (inRow % 2 == 0 && inCol % 2 == 0)
                     testClick.val++;
             }
         
