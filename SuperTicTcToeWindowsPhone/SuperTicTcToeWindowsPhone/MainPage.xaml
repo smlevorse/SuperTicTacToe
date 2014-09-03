@@ -198,6 +198,59 @@
             <Viewbox Margin="0" Grid.Row="17" Grid.Column="15" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0"/></Viewbox>
             <Viewbox Margin="0" Grid.Row="17" Grid.Column="17" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0"/></Viewbox>
 
+            <Rectangle Grid.Row="8" Grid.Column="12" Grid.RowSpan="10" Fill="Black" Stroke="White" StrokeThickness="2"/>
+
+            <Rectangle Grid.Row="12" Grid.Column="1" Grid.ColumnSpan="17" Fill="Black" Stroke="White" StrokeThickness="2"/>
+            
+            <Rectangle Grid.Row="1" Grid.Column="6" Grid.RowSpan="17" Fill="Black" Stroke="White" StrokeThickness="2"/>
+
+            <Rectangle Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="17" Fill="Black" Stroke="White" StrokeThickness="2"/>
+
+
+            <Rectangle Grid.Row="1" Grid.Column="12" Grid.RowSpan="11" Fill="Black" Stroke="White" StrokeThickness="2"/>
+            
+        </Grid>
+        
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+            
+            <Viewbox Grid.Column="0"
+            Margin="4"
+            VerticalAlignment="Stretch"
+            Height="Auto"
+            HorizontalAlignment="Center">
+                <TextBlock FontFamily="Century Gothic"
+                       TextAlignment="Center"
+                       Margin="1">X
+                </TextBlock>
+            </Viewbox>
+            
+            <Viewbox Grid.Column="1"
+            Margin="4"
+            VerticalAlignment="Stretch"
+            Height="Auto"
+            HorizontalAlignment="Center">
+                <TextBlock FontFamily="Century Gothic"
+                       TextAlignment="Center"
+                       Margin="1">O
+                </TextBlock>
+            </Viewbox>
+
+            <Viewbox Grid.Column="2"
+            Margin="4"
+            VerticalAlignment="Stretch"
+            Height="Auto"
+            HorizontalAlignment="Center">
+                <Button FontFamily="Century Gothic"
+                        Margin="1" 
+                        >Reset
+                </Button>
+            </Viewbox>
+
         </Grid>
     </Grid>
 </Page>
