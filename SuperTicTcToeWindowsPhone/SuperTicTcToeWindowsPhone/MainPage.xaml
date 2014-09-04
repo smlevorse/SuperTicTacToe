@@ -25,7 +25,7 @@
             </TextBlock>
         </Viewbox>
         
-        <Grid Grid.Row="1">
+        <Grid x:Name="gridBoard" Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="2*" />
                 <RowDefinition Height="3*" />

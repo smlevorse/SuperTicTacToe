@@ -56,6 +56,7 @@ namespace SuperTicTcToeWindowsPhone
             //Process button pressed
             Button buttonPressed = (Button)sender;
             int index = buttonPressed.TabIndex;
+            Button tempButton;
 
             //declare variables
             int inRow;					//inner row
@@ -157,7 +158,7 @@ namespace SuperTicTcToeWindowsPhone
             if (threeInARow(outerBoard) != '-')
             {
                 //display win
-                lblPlayer.Text = "Player " + player + " wins!";
+                //Display WIn
 
                 //disable all of the boards
                 for (int i = 0; i < 9; i++)
@@ -169,11 +170,15 @@ namespace SuperTicTcToeWindowsPhone
                 //Determine which buttons should be enabled after turn, enable those and disable the rest
                 if (outerBoard[inRow, inCol] != '-' || isFull(packageBoard(gameBoard, inRow, inCol)))
                 {
-                    foreach (Control control in this.Controls)
+                    foreach (Control control in gridBoard.Children)
                     {
-                        if (control is Button && control.TabIndex < 81 && control.Text == "" && control.Visible)
+                        if (control is Button)
                         {
-                            control.Enabled = true;
+                            tempButton = (Button)control;
+                            if(tempButton.TabIndex < 81 && tempButton.Content == "" && tempButton.Visibility.Equals(Windows.UI.Xaml.Visibility.Visible))
+                                {
+                                    control.IsEnabled = true;
+                                }
                         }
                     }
                 }
@@ -185,7 +190,7 @@ namespace SuperTicTcToeWindowsPhone
 
                 }
 
-                buttonPressed.Enabled = false;
+                buttonPressed.IsEnabled = false;
 
                 //toggle player
                 if (player == 'X')
@@ -193,15 +198,16 @@ namespace SuperTicTcToeWindowsPhone
                 else if (player == 'O')
                     changePlayer('X');
 
-                if (aiEnabled && player == ai.marker)
-                {
-                    List<Button> collection = new List<Button>();
-                    foreach (Control control in this.Controls)
-                        if (control is Button && control.TabIndex < 81)
-                            collection.Add((Button)control);
-                    buttonPressed = ai.makeMove(gameBoard, outerBoard, collection);
-                    buttonPressed.PerformClick();
-                }
+                //code if we have an AI
+                //if (aiEnabled && player == ai.marker)
+                //{
+                //    List<Button> collection = new List<Button>();
+                //    foreach (Control control in this.Controls)
+                //        if (control is Button && control.TabIndex < 81)
+                //            collection.Add((Button)control);
+                //    buttonPressed = ai.makeMove(gameBoard, outerBoard, collection);
+                //    buttonPressed.PerformClick();
+                //}
             }
         }
 
