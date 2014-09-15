@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid RequestedTheme="Light">
+    <Grid x:Name="AppWindow" RequestedTheme="Light">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
             <RowDefinition Height="5*" />
@@ -27,188 +27,202 @@
         
         <Grid x:Name="gridBoard" Grid.Row="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="2*" />
-                <RowDefinition Height="3*" />
                 <RowDefinition Height="1*" />
-                <RowDefinition Height="3*" />
                 <RowDefinition Height="1*" />
-                <RowDefinition Height="3*" />
-                <RowDefinition Height="3*" />
                 <RowDefinition Height="3*" />
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="3*" />
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="3*" />
-                <RowDefinition Height="3*" /> 
-                <RowDefinition Height="3*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="3*" />
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="3*" />
-                <RowDefinition Height="2*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
             
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*" />
-                <ColumnDefinition Width="3*" />
                 <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="3*" />
                 <ColumnDefinition Width="1*" />
-                <ColumnDefinition Width="3*" />
-                <ColumnDefinition Width="3*" />
                 <ColumnDefinition Width="3*" />
                 <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="3*" />
                 <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="3*" />
-                <ColumnDefinition Width="3*" />
-                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="3*" />
                 <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="3*" />
-                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
             </Grid.ColumnDefinitions>
 
-            <Viewbox Margin="0" Grid.Row="1" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="1" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="1" Grid.Column="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Rectangle x:Name="rectPlayingBoard" Grid.Row="1" Grid.Column="1" Grid.RowSpan="7" Grid.ColumnSpan="7" Fill="White" Stroke="Red"/>
             
-            <Viewbox Margin="0" Grid.Row="1" Grid.Column="7" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="1" Grid.Column="9" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="1" Grid.Column="11" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="2" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="2" Grid.Column="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="2" Grid.Column="6" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
             
-            <Viewbox Margin="0" Grid.Row="1" Grid.Column="13" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="1" Grid.Column="15" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="1" Grid.Column="17" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            
-            <!---->
-            
-            <Viewbox Margin="0" Grid.Row="3" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="3" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="3" Grid.Column="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            
-            <Viewbox Margin="0" Grid.Row="3" Grid.Column="7" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="3" Grid.Column="9" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="3" Grid.Column="11" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            
-            <Viewbox Margin="0" Grid.Row="3" Grid.Column="13" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="3" Grid.Column="15" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="3" Grid.Column="17" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            
-            <!---->
-
-            <Viewbox Margin="0" Grid.Row="5" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="5" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="5" Grid.Column="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            
-            <Viewbox Margin="0" Grid.Row="5" Grid.Column="7" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="5" Grid.Column="9" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="5" Grid.Column="11" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            
-            <Viewbox Margin="0" Grid.Row="5" Grid.Column="13" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="5" Grid.Column="15" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="5" Grid.Column="17" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-
-            
-            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-        
-            
-            <Viewbox Margin="0" Grid.Row="7" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="7" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="7" Grid.Column="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            
-            <Viewbox Margin="0" Grid.Row="7" Grid.Column="7" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="7" Grid.Column="9" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="7" Grid.Column="11" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            
-            <Viewbox Margin="0" Grid.Row="7" Grid.Column="13" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="7" Grid.Column="15" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="7" Grid.Column="17" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="2" Grid.Column="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="2" Grid.Column="12" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="2" Grid.Column="14" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+                                          
+            <Viewbox Margin="0" Grid.Row="2" Grid.Column="18" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="2" Grid.Column="20" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="2" Grid.Column="22" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
             
             <!---->
             
-            <Viewbox Margin="0" Grid.Row="9" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="9" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="9" Grid.Column="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            
-            <Viewbox Margin="0" Grid.Row="9" Grid.Column="7" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="9" Grid.Column="9" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="9" Grid.Column="11" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            
-            <Viewbox Margin="0" Grid.Row="9" Grid.Column="13" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="9" Grid.Column="15" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="9" Grid.Column="17" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="4" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="4" Grid.Column="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="4" Grid.Column="6" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+                                          
+            <Viewbox Margin="0" Grid.Row="4" Grid.Column="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="4" Grid.Column="12" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="4" Grid.Column="14" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+                                          
+            <Viewbox Margin="0" Grid.Row="4" Grid.Column="18" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="4" Grid.Column="20" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="4" Grid.Column="22" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
             
             <!---->
 
-            <Viewbox Margin="0" Grid.Row="11" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="11" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="11" Grid.Column="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            
-            <Viewbox Margin="0" Grid.Row="11" Grid.Column="7" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="11" Grid.Column="9" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="11" Grid.Column="11" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            
-            <Viewbox Margin="0" Grid.Row="11" Grid.Column="13" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="11" Grid.Column="15" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="11" Grid.Column="17" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="6" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="6" Grid.Column="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="6" Grid.Column="6" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+                                          
+            <Viewbox Margin="0" Grid.Row="6" Grid.Column="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="6" Grid.Column="12" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="6" Grid.Column="14" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+                                          
+            <Viewbox Margin="0" Grid.Row="6" Grid.Column="18" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="6" Grid.Column="20" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="6" Grid.Column="22" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
 
             
             <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-            
-            
-            <Viewbox Margin="0" Grid.Row="13" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="13" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="13" Grid.Column="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            
-            <Viewbox Margin="0" Grid.Row="13" Grid.Column="7" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="13" Grid.Column="9" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="13" Grid.Column="11" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            
-            <Viewbox Margin="0" Grid.Row="13" Grid.Column="13" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="13" Grid.Column="15" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="13" Grid.Column="17" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+
+
+            <Viewbox Margin="0" Grid.Row="10" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="10" Grid.Column="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="10" Grid.Column="6" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+                                          
+            <Viewbox Margin="0" Grid.Row="10" Grid.Column="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="10" Grid.Column="12" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="10" Grid.Column="14" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+                                          
+            <Viewbox Margin="0" Grid.Row="10" Grid.Column="18" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="10" Grid.Column="20" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="10" Grid.Column="22" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
             
             <!---->
             
-            <Viewbox Margin="0" Grid.Row="15" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="15" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="15" Grid.Column="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            
-            <Viewbox Margin="0" Grid.Row="15" Grid.Column="7" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="15" Grid.Column="9" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="15" Grid.Column="11" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            
-            <Viewbox Margin="0" Grid.Row="15" Grid.Column="13" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="15" Grid.Column="15" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="15" Grid.Column="17" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="12" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="12" Grid.Column="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="12" Grid.Column="6" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+                                          
+            <Viewbox Margin="0" Grid.Row="12" Grid.Column="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="12" Grid.Column="12" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="12" Grid.Column="14" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+                                          
+            <Viewbox Margin="0" Grid.Row="12" Grid.Column="18" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="12" Grid.Column="20" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="12" Grid.Column="22" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
             
             <!---->
 
-            <Viewbox Margin="0" Grid.Row="17" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="17" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="17" Grid.Column="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="14" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="14" Grid.Column="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="14" Grid.Column="6" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+                                           
+            <Viewbox Margin="0" Grid.Row="14" Grid.Column="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="14" Grid.Column="12" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="14" Grid.Column="14" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+                                           
+            <Viewbox Margin="0" Grid.Row="14" Grid.Column="18" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="14" Grid.Column="20" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="14" Grid.Column="22" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+
             
-            <Viewbox Margin="0" Grid.Row="17" Grid.Column="7" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="17" Grid.Column="9" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="17" Grid.Column="11" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+
+
+            <Viewbox Margin="0" Grid.Row="18" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="18" Grid.Column="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="18" Grid.Column="6" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+                                           
+            <Viewbox Margin="0" Grid.Row="18" Grid.Column="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="18" Grid.Column="12" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="18" Grid.Column="14" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+                                           
+            <Viewbox Margin="0" Grid.Row="18" Grid.Column="18" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="18" Grid.Column="20" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="18" Grid.Column="22" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
             
-            <Viewbox Margin="0" Grid.Row="17" Grid.Column="13" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="17" Grid.Column="15" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
-            <Viewbox Margin="0" Grid.Row="17" Grid.Column="17" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <!---->
+            
+            <Viewbox Margin="0" Grid.Row="20" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="20" Grid.Column="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="20" Grid.Column="6" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+                                          
+            <Viewbox Margin="0" Grid.Row="20" Grid.Column="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="20" Grid.Column="12" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="20" Grid.Column="14" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+                                          
+            <Viewbox Margin="0" Grid.Row="20" Grid.Column="18" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="20" Grid.Column="20" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="20" Grid.Column="22" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            
+            <!---->
+
+            <Viewbox Margin="0" Grid.Row="22" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="22" Grid.Column="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="22" Grid.Column="6" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+                                          
+            <Viewbox Margin="0" Grid.Row="22" Grid.Column="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="22" Grid.Column="12" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="22" Grid.Column="14" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+                                          
+            <Viewbox Margin="0" Grid.Row="22" Grid.Column="18" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="22" Grid.Column="20" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
+            <Viewbox Margin="0" Grid.Row="22" Grid.Column="22" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><Button Margin="0" FontFamily="Century Gothic" Height="100" HorizontalAlignment="Center" TabIndex="0" Click="Button_Click"/></Viewbox>
 
             <!-- Rectangles to make up the board -->
             
-            <Rectangle Grid.Row="8" Grid.Column="12" Grid.RowSpan="10" Fill="Black" Stroke="White" StrokeThickness="2"/>
+            <Rectangle Grid.Row="8" Grid.Column="16" Grid.RowSpan="10" Fill="Black" Stroke="White" StrokeThickness="2"/>
 
-            <Rectangle Grid.Row="12" Grid.Column="1" Grid.ColumnSpan="17" Fill="Black" Stroke="White" StrokeThickness="2"/>
+            <Rectangle Grid.Row="16" Grid.Column="1" Grid.ColumnSpan="23" Fill="Black" Stroke="White" StrokeThickness="2"/>
             
-            <Rectangle Grid.Row="1" Grid.Column="6" Grid.RowSpan="17" Fill="Black" Stroke="White" StrokeThickness="2"/>
+            <Rectangle Grid.Row="1" Grid.Column="8" Grid.RowSpan="23" Fill="Black" Stroke="White" StrokeThickness="2"/>
 
-            <Rectangle Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="17" Fill="Black" Stroke="White" StrokeThickness="2"/>
+            <Rectangle Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="23" Fill="Black" Stroke="White" StrokeThickness="2"/>
 
-            <Rectangle Grid.Row="1" Grid.Column="12" Grid.RowSpan="11" Fill="Black" Stroke="White" StrokeThickness="2"/>
+            <Rectangle Grid.Row="1" Grid.Column="16" Grid.RowSpan="23" Fill="Black" Stroke="White" StrokeThickness="2"/>
             
             <!-- TextBlocks to Display a won board-->
             
@@ -220,38 +234,48 @@
             <Viewbox Grid.RowSpan="5" Grid.ColumnSpan="5" Grid.Row="7" Grid.Column="13" Margin="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><TextBlock x:Name="lbl12" Margin="1" FontFamily="Century Gothic" TextAlignment="Center" Visibility="Collapsed"></TextBlock></Viewbox>
             <Viewbox Grid.RowSpan="5" Grid.ColumnSpan="5" Grid.Row="13" Grid.Column="1" Margin="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><TextBlock x:Name="lbl20" Margin="1" FontFamily="Century Gothic" TextAlignment="Center" Visibility="Collapsed"></TextBlock></Viewbox>
             <Viewbox Grid.RowSpan="5" Grid.ColumnSpan="5" Grid.Row="13" Grid.Column="7" Margin="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><TextBlock x:Name="lbl21" Margin="1" FontFamily="Century Gothic" TextAlignment="Center" Visibility="Collapsed"></TextBlock></Viewbox>
-            <Viewbox Grid.RowSpan="5" Grid.ColumnSpan="5" Grid.Row="13" Grid.Column="13" Margin="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto"><TextBlock x:Name="lbl22" Margin="1" FontFamily="Century Gothic" TextAlignment="Center" Visibility="Collapsed"></TextBlock></Viewbox>
-            
+                <Viewbox Grid.RowSpan="5" Grid.ColumnSpan="5" Grid.Row="13" Grid.Column="13" Margin="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="Auto">
+                    <TextBlock x:Name="lbl22" Margin="1" FontFamily="Century Gothic" TextAlignment="Center" Visibility="Collapsed"></TextBlock>
+                </Viewbox>
+
         </Grid>
         
-        <Grid Grid.Row="2">
+        <Grid x:Name="gridPlayerControls" Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="1*" />
                 <ColumnDefinition Width="2*" />
             </Grid.ColumnDefinitions>
-            
+
+            <Rectangle x:Name="rectPlayer" Grid.Column="0" Fill="White" Stroke="Black" StrokeThickness="1" Height="100" Width="100" Visibility="Collapsed"/>
+
             <Viewbox Grid.Column="0"
             Margin="4"
             VerticalAlignment="Stretch"
             Height="Auto"
-            HorizontalAlignment="Center">
+            HorizontalAlignment="Center"
+            x:Name="vbxWinner">
                 <TextBlock FontFamily="Century Gothic"
-                       TextAlignment="Center"
-                       Margin="1">X
+                           x:Name="lblX"
+                           TextAlignment="Center"
+                           Margin="1">X
                 </TextBlock>
             </Viewbox>
-            
+
             <Viewbox Grid.Column="1"
             Margin="4"
             VerticalAlignment="Stretch"
             Height="Auto"
-            HorizontalAlignment="Center">
+            HorizontalAlignment="Center"
+            x:Name="vbxHidden">
                 <TextBlock FontFamily="Century Gothic"
-                       TextAlignment="Center"
-                       Margin="1">O
+                           x:Name="lblO"
+                           TextAlignment="Center"
+                           Margin="1">O
                 </TextBlock>
             </Viewbox>
+            
+            
 
             <Viewbox Grid.Column="2"
             Margin="4"
@@ -259,6 +283,7 @@
             Height="Auto"
             HorizontalAlignment="Center">
                 <Button FontFamily="Century Gothic"
+                        x:Name="cmdReset"
                         Margin="1" 
                         >Reset
                 </Button>

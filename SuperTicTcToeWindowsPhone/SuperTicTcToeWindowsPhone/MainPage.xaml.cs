@@ -158,7 +158,10 @@ namespace SuperTicTcToeWindowsPhone
             if (threeInARow(outerBoard) != '-')
             {
                 //display win
-                //Display WIn
+                //Display win
+                vbxHidden.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                Grid.SetColumnSpan(vbxWinner, 2);
+                lblX.Text = "Player " + threeInARow(outerBoard) + "wins!";
 
                 //disable all of the boards
                 for (int i = 0; i < 9; i++)
@@ -181,12 +184,16 @@ namespace SuperTicTcToeWindowsPhone
                                 }
                         }
                     }
+
+                    rectPlayingBoard.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
                 }
                 else
                 {
                     for (int i = 0; i < 9; i++)
                         enableBoard(i, false);
                     enableBoard(inRow * 3 + inCol, true);
+                    Grid.SetColumn(rectPlayingBoard, 2 + 7 * inCol);
+                    Grid.SetRow(rectPlayingBoard, 2 + 7 * inRow);
 
                 }
 
@@ -208,6 +215,22 @@ namespace SuperTicTcToeWindowsPhone
                 //    buttonPressed = ai.makeMove(gameBoard, outerBoard, collection);
                 //    buttonPressed.PerformClick();
                 //}
+            }
+        }
+
+        public void changePlayer(char newPlayer)
+        {
+            player = newPlayer;
+            switch (player)
+            {
+                case 'X':
+                    Grid.SetColumn(rectPlayer, 0);
+                    break;
+                case 'O':
+                    Grid.SetColumn(rectPlayer, 1);
+                    break;
+                default:
+                    break;
             }
         }
 
@@ -248,12 +271,17 @@ namespace SuperTicTcToeWindowsPhone
         //Disables an internal board based on its index
         public void enableBoard(int index, bool enabled)
         {
-            foreach (Control control in this.Controls)
+            Button temp;
+            foreach (Control control in gridBoard.Children)
             {
-                if (control is Button && control.TabIndex >= index * 9 && control.TabIndex < index * 9 + 9
-                    && control.Text == "")
+                if (control is Button)
                 {
-                    control.Enabled = enabled;
+                    temp = (Button)control;
+                    if (temp.TabIndex >= index * 9 && control.TabIndex < index * 9 + 9
+                    && temp.Content == "")
+                    {
+                        control.IsEnabled = enabled;
+                    }
                 }
             }
         }
@@ -261,11 +289,14 @@ namespace SuperTicTcToeWindowsPhone
         //Hides an internal board based on its index
         public void hideBoard(int index, bool visible)
         {
-            foreach (Control control in this.Controls)
+            foreach (Button control in gridBoard.Children)
             {
                 if (control is Button && control.TabIndex >= index * 9 && control.TabIndex < index * 9 + 9)
                 {
-                    control.Visible = visible;
+                    if (visible)
+                        control.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                    else
+                        control.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
                 }
             }
         }
@@ -282,26 +313,18 @@ namespace SuperTicTcToeWindowsPhone
 
         private void cmdReset_Click(object sender, EventArgs e)
         {
-            foreach (Control control in this.Controls)
+            foreach (Button control in gridBoard.Children)
             {
-                if (control is Button && control != cmdReset)
-                {
-                    control.Enabled = true;
-                    control.Visible = true;
-                    control.Text = "";
-                }
-                else if (control is Label && control != lblPlayer)
-                {
-                    control.Text = "";
-                    control.Visible = false;
-                }
-                else if (control == lblPlayer)
-                {
-                    changePlayer(player);
-                }
+                control.IsEnabled = true;
+                control.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                ((Button)control).Content = "";
+            }
+            foreach (TextBlock control in gridBoard.Children)
+            {
+                control.Text = "";
+                control.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             }
 
-            txtConsole.AppendText("\r\n");
             gameBoard = new char[3, 3, 3, 3];
             for (int i = 0; i < 3; i++)
                 for (int j = 0; j < 3; j++)
@@ -313,19 +336,22 @@ namespace SuperTicTcToeWindowsPhone
                 for (int j = 0; j < 3; j++)
                     outerBoard[i, j] = '-';
 
-            aiEnabled = radComputer.Checked;
-            if (aiEnabled)
-            {
-                switch (player)
-                {
-                    case 'X':
-                        ai = new playerAI('O');
-                        break;
-                    case 'O':
-                        ai = new playerAI('X');
-                        break;
-                }
-            }
+            vbxHidden.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            Grid.SetColumnSpan(vbxWinner, 1);
+            lblX.Text = "X";
+            //aiEnabled = radComputer.Checked;
+            //if (aiEnabled)
+            //{
+            //    switch (player)
+            //    {
+            //        case 'X':
+            //            ai = new playerAI('O');
+            //            break;
+            //        case 'O':
+            //            ai = new playerAI('X');
+            //            break;
+            //    }
+            //}
         }
     }
 }
